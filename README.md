@@ -2,6 +2,8 @@
 
 A mobile-first personal trip guide for October 30–November 1, 2026. Buildless HTML, CSS and JavaScript, deployed through GitHub Pages from `main`.
 
+**[View the live itinerary](https://sshireto.github.io/nikko-autumn-2026/#itinerary)**
+
 ## Run locally
 
 `python3 -m http.server 8080`
