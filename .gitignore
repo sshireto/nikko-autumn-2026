@@ -1,0 +1,5 @@
+assets/*-original.jpg
+.impeccable/review/
+qa-results.json
+qa.cjs
+.DS_Store

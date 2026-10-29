@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T11:23:23.434018+00:00",
+  "title": "Design System: Nikko, in autumn",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm ivory"
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Forest ink"
+      },
+      "rust": {
+        "role": "secondary",
+        "displayName": "Rust"
+      },
+      "leaf": {
+        "role": "neutral",
+        "displayName": "Leaf surface"
+      },
+      "warm": {
+        "role": "neutral",
+        "displayName": "Warm notice surface"
+      }
+    },
+    "shadows": [
+      {
+        "name": "mobile-navigation",
+        "value": "0 -4px 20px rgba(35,62,52,.06)",
+        "purpose": "Separate fixed mobile navigation from scrolling content."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-background",
+        "value": "background .18s",
+        "purpose": "Button hover transition."
+      },
+      {
+        "name": "packing-progress",
+        "value": "width .3s ease-out",
+        "purpose": "Packing completion update."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "mobile",
+        "value": "650px"
+      },
+      {
+        "name": "narrow",
+        "value": "360px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Shared action styling extracted from the guide.",
+      "html": "<button class=\"ds-primary\" type=\"button\">Print / save PDF</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:12px 19px;border:0;border-radius:6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;font-weight:650;text-decoration:none;cursor:pointer;transition:background .18s;background:var(--ink,#233e34);color:var(--white,#fffdf8)}.ds-primary:hover{background:#36584a}.ds-primary:focus-visible{outline:3px solid var(--rust,#994222);outline-offset:5px}.ds-primary:disabled{cursor:wait;opacity:.65}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Light button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Shared action styling extracted from the guide.",
+      "html": "<button class=\"ds-light\" type=\"button\">Copy stop name</button>",
+      "css": ".ds-light{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:12px 19px;border:0;border-radius:6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;font-weight:650;text-decoration:none;cursor:pointer;transition:background .18s;background:var(--leaf,#e7eadf);color:var(--ink,#233e34)}.ds-light:hover{background:#d6dfcb}.ds-light:focus-visible{outline:3px solid var(--rust,#994222);outline-offset:5px}.ds-light:disabled{cursor:wait;opacity:.65}@media(prefers-reduced-motion:reduce){.ds-light{transition:none}}"
+    },
+    {
+      "name": "Day tabs",
+      "kind": "nav",
+      "refersTo": "day-tab-selected",
+      "description": "Selected and unselected visual states; app.js implements keyboard navigation.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\" aria-label=\"Choose a trip day\"><button role=\"tab\" aria-selected=\"true\"><b>Fri <span>30 Oct</span></b><small>Arrive &amp; unwind</small></button><button role=\"tab\" aria-selected=\"false\" tabindex=\"-1\"><b>Sat <span>31 Oct</span></b><small>Lake &amp; waterfall</small></button><button role=\"tab\" aria-selected=\"false\" tabindex=\"-1\"><b>Sun <span>1 Nov</span></b><small>Homeward, early</small></button></div>",
+      "css": ".ds-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line,#d7d9cf);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.ds-tabs button{font:inherit;color:var(--muted,#59665c);background:none;border:0;text-align:left;padding:18px 20px;min-height:82px;border-bottom:3px solid transparent;cursor:pointer}.ds-tabs b{font-size:18px;font-weight:600;display:block}.ds-tabs b span{font-size:13px;font-weight:400;margin-left:8px}.ds-tabs small{display:block;margin-top:4px;font-size:13px;line-height:1.65;color:var(--muted,#59665c)}.ds-tabs [aria-selected=true]{border-color:var(--rust,#994222);background:var(--warm,#eee0cd);color:var(--ink,#233e34)}.ds-tabs button:hover{background:#eee9de}.ds-tabs button:focus-visible{outline:3px solid var(--rust,#994222);outline-offset:5px}"
+    },
+    {
+      "name": "Packing row",
+      "kind": "input",
+      "refersTo": "packing-row",
+      "description": "Native checkbox; the application persists state on this browser.",
+      "html": "<label class=\"ds-pack\"><input type=\"checkbox\"><span>Warm jacket</span></label>",
+      "css": ".ds-pack{display:flex;align-items:center;gap:13px;min-height:49px;border-bottom:1px solid var(--line,#d7d9cf);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--ink,#233e34);cursor:pointer;padding-block:10px}.ds-pack input{width:21px;height:21px;accent-color:var(--ink,#233e34);cursor:pointer;flex-shrink:0;margin:0}.ds-pack input:checked+span{text-decoration:line-through;color:var(--muted,#59665c)}.ds-pack input:focus-visible{outline:3px solid var(--rust,#994222);outline-offset:5px}"
+    },
+    {
+      "name": "Packing count",
+      "kind": "chip",
+      "refersTo": "packing-count",
+      "description": "Noninteractive completion count, announced by a status region.",
+      "html": "<span class=\"ds-count\" role=\"status\">0 / 18 packed</span>",
+      "css": ".ds-count{background:var(--leaf,#e7eadf);color:var(--ink,#233e34);border-radius:30px;padding:8px 15px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Priority note",
+      "kind": "card",
+      "refersTo": "priority-note",
+      "description": "Warm surface for the time-critical Sunday reminder.",
+      "html": "<aside class=\"ds-note\"><div><strong>Sunday starts early.</strong><p>Be at stop 29 by <b>08:40</b> for the proposed <b>08:55</b> downhill bus.</p></div></aside>",
+      "css": ".ds-note{display:flex;align-items:flex-start;gap:18px;background:var(--warm,#eee0cd);color:var(--ink,#233e34);padding:24px 26px;border-radius:var(--radius,14px);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6}.ds-note strong{font-size:17px;font-weight:650}.ds-note p{font-size:14px;margin:5px 0 0}.ds-note b{font-weight:650}"
+    },
+    {
+      "name": "Mobile navigation",
+      "kind": "nav",
+      "description": "Bottom navigation appearance; fixed positioning and safe-area padding belong to the page container.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Trip sections\"><a class=\"ds-active\" href=\"#itinerary\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 3v4m8-4v4M4 10h16\"/><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"/></svg>Plan</a><a href=\"#packing\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"6\" width=\"14\" height=\"15\" rx=\"2\"/><path d=\"M9 6V3h6v3M9 10v7m6-7v7\"/></svg>Pack</a></nav>",
+      "css": ".ds-nav{display:flex;justify-content:space-around;height:63px;padding:0 10px;background:var(--paper,#f7f4ed);color:var(--ink,#233e34);border-top:1px solid var(--line,#d7d9cf);box-shadow:0 -4px 20px rgba(35,62,52,.06);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.ds-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:65px;padding:5px 12px;font-size:10px;font-weight:600;color:inherit;text-decoration:none}.ds-nav svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.ds-nav a:hover,.ds-nav .ds-active{color:var(--rust,#994222);box-shadow:inset 0 2px var(--rust,#994222)}.ds-nav a:focus-visible{outline:3px solid var(--rust,#994222);outline-offset:5px}"
+    },
+    {
+      "name": "Status labels",
+      "kind": "custom",
+      "description": "Text-and-dot confirmation states.",
+      "html": "<span class=\"ds-status ds-confirmed\">Confirmed train</span> <span class=\"ds-status ds-proposed\">Proposed bus</span>",
+      "css": ".ds-status{display:inline-block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:10px;line-height:1.5;font-weight:700;text-transform:uppercase;letter-spacing:.075em;margin-bottom:12px}.ds-status:before{content:\"\";display:inline-block;width:6px;height:6px;background:currentColor;border-radius:50%;margin-right:7px;vertical-align:1px}.ds-confirmed{color:#386049}.ds-proposed{color:var(--rust,#994222)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The autumn escape",
+    "overview": "This phrase is taken from the implemented wordmark, rather than a separately selected aesthetic concept. Warm ivory, forest ink and rust support a relaxed travel guide. Fraunces headings, licensed destination photographs and generous section spacing provide its editorial character; transport times and controls use system sans-serif typography.",
+    "keyCharacteristics": [
+      "Warm paper with forest text and restrained rust emphasis.",
+      "Real destination photography, with credits and seasonal context.",
+      "Simple route geometry, readable times and clear uncertainty labels.",
+      "Mobile bottom navigation, keyboard day tabs and saved packing ticks."
+    ],
+    "rules": [],
+    "dos": [
+      "**Do** retain the warm ivory, forest ink and rust direction.",
+      "**Do** preserve visible keyboard focus and text labels for status.",
+      "**Do** keep route geometry simple and label it as a schematic.",
+      "**Do** retain photo credits and distinguish destination imagery from current conditions."
+    ],
+    "donts": [
+      "**Don't** imply that proposed transport or an unconfirmed shuttle is booked.",
+      "**Don't** communicate packing completion or itinerary status through color alone.",
+      "**Don't** replace the mobile bottom navigation or hide all days when JavaScript is unavailable."
+    ]
+  }
+}
