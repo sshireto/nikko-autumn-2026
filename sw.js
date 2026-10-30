@@ -1,11 +1,13 @@
 'use strict';
-const CACHE = 'nikko-guide-v1';
+const CACHE = 'nikko-guide-v2';
 const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'manifest.webmanifest', 'assets/autumn.webp', 'assets/lake.webp', 'assets/fraunces.ttf', 'assets/icon.svg', 'assets/icon-192.png', 'assets/icon-512.png', 'assets/FONT-LICENSE.txt'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(async cache => { await cache.addAll(FILES); await cache.put('offline-ready', new Response('ready')); }).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(key => key.startsWith('nikko-guide-') && key !== CACHE).map(key => caches.delete(key)));
     await self.clients.claim();
     const clients = await self.clients.matchAll();
     clients.forEach(client => client.postMessage('OFFLINE_READY'));
