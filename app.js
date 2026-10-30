@@ -72,7 +72,7 @@ if ('IntersectionObserver' in window) {
 const offlineStatus = document.querySelector('#offline-status');
 async function refreshOfflineStatus() {
   try {
-    const cache = await caches.open('nikko-guide-v1');
+    const cache = await caches.open('nikko-guide-v2');
     const ready = Boolean(await cache.match('offline-ready'));
     offlineStatus.textContent = ready
       ? 'Guide saved for offline reading on this browser. Maps, weather updates and external links still need internet. Browsers can clear saved data.'
